@@ -2,11 +2,12 @@
 
 	namespace framer;
 
-	// phpinfo();
+	// phpinfo(); exit();
+	header("Access-Control-Allow-Origin: *");
 
 	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 
 	session_start();
 
@@ -31,10 +32,13 @@ error_reporting(E_ALL);
 	include_once $root.'core/sessions.php';
 	include_once $root.'core/posts.php';
 
-	include __DIR__ . '/admin/poki.accessor.php';
+	// disable csrf check
+	Posts::disableCSRF();
+
+	// include __DIR__ . '/admin/poki.accessor.php';
 
     $_SERVER['REQUEST_URI'] = urldecode($_SERVER['REQUEST_URI']);
-    
+
     /* obtention du dossier de base de l'application */
     if (Config::$appfolder == 'noset') {
 		$dirname = basename(__DIR__);

@@ -17,12 +17,9 @@
         {
             return [
                 
-                "default" => "/",
-                "list" => "/search/list",
-                "listsingle" => "/search/details",
-                "sendmessage" => "/search/send-message",
-                "rate" => "/search/rate",
-                "directions" => "/search/directions"
+                "default"   => "/",
+                "do/signup" => "/users/signup",
+                "do/login"  => "/users/login"
 
             ];
         }

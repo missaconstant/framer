@@ -8,17 +8,17 @@
 
         public static $db_password = "root";
 
-        public static $db_name = "_annuaire";
+        public static $db_name = "sendem";
 
-        public static $db_host = "localhost";
+        public static $db_host = "localhost:8889";
 
         public static $db_type = "mysql";
 
-        public static $serve_port = 9000;
+        public static $serve_port = 6100;
 
         public static $dev_host = "localhost";
 
-        public static $share_host = "192.168.8.106";
+        public static $share_host = "0.0.0.0";
 
         public static $fields_files_path = "appfiles/fields_files/";
 
