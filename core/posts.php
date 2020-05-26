@@ -86,6 +86,11 @@
             }
 		}
 
+		static function files()
+		{
+			return json_encode(json_encode($_FILES));
+		}
+
 		static private function csrfWare()
 		{
 			if (self::$checkCSRF) {
