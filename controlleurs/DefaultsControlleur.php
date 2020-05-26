@@ -3,7 +3,7 @@
 	namespace framer;
 
 	/**
-	* 
+	*
 	*/
 	class DefaultsControlleur extends controlleur
 	{
@@ -11,7 +11,7 @@
 
 		public function __construct()
 		{
-			
+
 		}
 
 		public function index()

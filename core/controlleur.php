@@ -57,7 +57,7 @@
 				$model = get_class($this) ;
 				$model = explode('Controlleur', $model) ;
 
-				$model[0] = str_replace('Framer', '', $model[0]);
+				$model[0] = str_replace('framer\\', '', $model[0]);
 
 				include_once Statics::$ROOT.'modeles/'.ucfirst($model[0]).'Modele.php' ;
 				$model = "framer\\" . ucfirst($model[0]) . "Modele";

@@ -1,0 +1,64 @@
+array(2) {
+  ["username"]=>
+  string(9) "test42127"
+  ["password"]=>
+  string(7) "6797897"
+}
+
+
+array(27) {
+  ["user_ip_adresse"]=>
+  string(7) "0.0.0.0"
+  ["identifiant_client"]=>
+  string(34) "$P$BLJczKiE5B7kA8mOjx.jU98mLrj7oJ."
+  ["nature_paiement"]=>
+  string(15) "pay_via_produit"
+  ["device_type"]=>
+  string(1) "1"
+  ["imsi"]=>
+  string(14) "87567899897867"
+  ["purchaseref"]=>
+  string(194) "[{"produit_code":"PR00013_50","quantity":"3","amount":"300","nom_recette":"Actes de justices"}, {"produit_code":"PR00246_2","quantity":"3","amount":"150000","nom_recette":"AGREMENT ENTREPRISE"}]"
+  ["ajax"]=>
+  string(4) "true"
+  ["suscriber_id"]=>
+  string(11) "22501768841"
+  ["reference"]=>
+  string(17) "email1@rosine.com"
+  ["mac_adr"]=>
+  string(17) "02:00:00:00:00:00"
+  ["the_client_num_cipher"]=>
+  string(32) "cbb69420eedd20c9ed5fb2c45482d8a9"
+  ["d_credential_id"]=>
+  string(15) "158859263688625"
+  ["code_achat"]=>
+  string(0) ""
+  ["action"]=>
+  string(16) "suscribe-product"
+  ["phone_num"]=>
+  string(11) "22501768841"
+  ["canal"]=>
+  string(4) "paym"
+  ["prenom"]=>
+  string(8) "Constant"
+  ["payment_method"]=>
+  string(5) "FLOOZ"
+  ["email"]=>
+  string(0) ""
+  ["amount"]=>
+  string(6) "150310"
+  ["quantity"]=>
+  string(1) "6"
+  ["session_id"]=>
+  string(60) "$2a$08$C9zIfhi8L/nFQ9E4546Ydu6d5kGTXTQfs46H9mK5l4Atj6PkCYN.i"
+  ["serial_number"]=>
+  string(7) "unknown"
+  ["poste_comptable"]=>
+  string(3) "342"
+  ["m"]=>
+  string(16) "suscribe-product"
+  ["nomprenom"]=>
+  string(5) "Missa"
+  ["prodc"]=>
+  string(194) "[{"produit_code":"PR00013_50","quantity":"3","amount":"300","nom_recette":"Actes de justices"}, {"produit_code":"PR00246_2","quantity":"3","amount":"150000","nom_recette":"AGREMENT ENTREPRISE"}]"
+}
