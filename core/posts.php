@@ -15,6 +15,11 @@
 
 		}
 
+		static function setDataType($type='urlencoded')
+		{
+			$_POST = $type == 'json' ? json_decode( file_get_contents('php://input'), true ) : $_POST;
+		}
+
 		static function getCSRF()
 		{
 			if (!self::$givenfield) {
@@ -52,15 +57,21 @@
 
 
 
-		static function post($value)
+		static function post($value=null)
 		{
 			self::csrfWare();
 
-			if (is_string($value)) {
+			if (is_string($value))
+			{
 				return self::getRequestValue($_POST, $value);
 			}
-			else if (is_array($value)) {
+			else if (is_array($value))
+			{
 				return self::setted($_POST, $value);
+			}
+			else if ( $value == null )
+			{
+				return (object) $_POST;
 			}
 		}
 
@@ -88,7 +99,7 @@
 
 		static function files()
 		{
-			return json_encode(json_encode($_FILES));
+			return json_decode(json_encode($_FILES));
 		}
 
 		static private function csrfWare()
@@ -120,7 +131,8 @@
 				return is_array($type[$index]) ? $type[$index] : htmlspecialchars($type[$index]);
 			}
 			else {
-				throw new \Exception("Index undefined", 1);
+				return NULL;
+				// throw new \Exception("Index undefined", 1);
 			}
 		}
 

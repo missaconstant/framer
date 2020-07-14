@@ -100,19 +100,20 @@
 			return json_encode($array);
 		}
 
-		function json_answer($array)
+		function json_answer($array, $exit=false)
 		{
 			echo $this->jsonize($array);
+			$exit && exit();
 		}
 
-		function json_error($message, $morevalue = [])
+		function json_error($message, $morevalue = [], $exit=false)
         {
-            $this->json_answer(array_merge(["error" => true, "message" => $message], $morevalue));
+            $this->json_answer(array_merge(["error" => true, "message" => $message], $morevalue), $exit);
         }
 
-		function json_success($message, $morevalue = [])
+		function json_success($message, $morevalue = [], $exit=false)
         {
-            $this->json_answer(array_merge(["error" => false, "message" => $message], $morevalue));
+            $this->json_answer(array_merge(["error" => false, "message" => $message], $morevalue), $exit);
         }
 
 	}

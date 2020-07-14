@@ -16,14 +16,17 @@ class Road
 	{
 		// removing tirets(-) in action
 		$action = $this->parseActionSeparator($action);
+
 		// check for controlleur exists
-		if ($this->findControlleur($controlleur)) {
+		if ( $this->findControlleur($controlleur) )
+		{
 			include_once Statics::$ROOT . 'controlleurs/'.ucfirst($controlleur).'Controlleur.php';
 
 			$ctrl = "\\framer\\" . ucfirst($controlleur).'Controlleur';
-			$ctrl = new $ctrl();
+			$ctrl = new $ctrl( $action ); // instantiate controller passing asked action
 
-			if (method_exists($ctrl, $action)) {
+			if ( method_exists($ctrl, $action) )
+			{
 				$ctrl->$action();
 			}
 			else {
@@ -32,17 +35,21 @@ class Road
 					$ctrl->$action();
 				}
 				else {
-					throw new Exception("Action Introuvable !", 1);
+					throw new \Exception("Action Introuvable !", 1);
 				}
-				
+
 			}
 		}
 		else {
-			if ($this->findControlleur('defaults')) {
+			if ( $this->findControlleur('defaults') )
+			{
 				include_once Statics::$ROOT.'controlleurs/DefaultsControlleur.php';
-				$ctrl = new DefaultsControlleur();
+
+				$ctrl 	= new DefaultsControlleur();
 				$action = $this->parseActionSeparator($controlleur);
-				if (method_exists($ctrl, $action)) {
+
+				if ( method_exists($ctrl, $action) )
+				{
 					$ctrl->$action();
 				}
 				else {
@@ -66,13 +73,18 @@ class Road
     /**
      * Retrouve une action depuis une chaine avec des tirets(-)
      */
-	public function parseActionSeparator($action) {
+	public function parseActionSeparator($action)
+	{
 	    $newAction = explode('-', $action);
-        for ($i=0; $i<count($newAction); $i++) {
-            if ($i>0) {
+
+        for ( $i=0; $i < count($newAction); $i++ )
+		{
+            if ($i>0)
+			{
                 $newAction[$i] = ucfirst($newAction[$i]);
             }
         }
+
         return implode('', $newAction);
     }
 }
