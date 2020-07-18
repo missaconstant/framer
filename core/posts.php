@@ -9,15 +9,17 @@
 	{
 		static private $checkCSRF = 1;
 		static private $givenfield = false;
+		static public $_POST = null;
 
 		function __construct()
 		{
-
+			// self::$_POST = $_POST;
 		}
 
 		static function setDataType($type='urlencoded')
 		{
-			$_POST = $type == 'json' ? json_decode( file_get_contents('php://input'), true ) : $_POST;
+			self::$_POST = $type == 'json' ? json_decode( file_get_contents('php://input'), true ) : $_POST;
+			// $_POST = self::$_POST;
 		}
 
 		static function getCSRF()
@@ -55,23 +57,21 @@
 			Session::set('csrf_token', $token);
 		}
 
-
-
 		static function post($value=null)
 		{
 			self::csrfWare();
 
 			if (is_string($value))
 			{
-				return self::getRequestValue($_POST, $value);
+				return self::getRequestValue(self::$_POST, $value);
 			}
 			else if (is_array($value))
 			{
-				return self::setted($_POST, $value);
+				return self::setted(self::$_POST, $value);
 			}
 			else if ( $value == null )
 			{
-				return (object) $_POST;
+				return (object) self::$_POST;
 			}
 		}
 

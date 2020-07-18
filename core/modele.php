@@ -118,7 +118,7 @@
 	            foreach ($fieldstoupate as $k => $v)
 	            {
 					// because can't edit bound key
-					if ($keytobind == $k) continue;
+					if ($keytobind == $v) continue;
 
 					// query array
 	                $left[] = "$v=:$v";
@@ -278,7 +278,7 @@
 
 				foreach ( $wheres as $column => $value )
 				{
-					$wlist[] = "$column='$value'";
+					$wlist[] = "$zone.$column='$value'";
 				}
 
 				// set limit & order

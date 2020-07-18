@@ -14,7 +14,7 @@
 		* @return void
         * @throws \Exception view
 		*/
-		function render($path, $layout=false, $vars=false)
+		function render($path, $layout=false, $vars=false, $scripts=[])
 		{
 			if($vars!=false) extract($vars) ;
 

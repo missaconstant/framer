@@ -45,12 +45,12 @@ class Road
 			{
 				include_once Statics::$ROOT.'controlleurs/DefaultsControlleur.php';
 
-				$ctrl 	= new DefaultsControlleur();
-				$action = $this->parseActionSeparator($controlleur);
+				$acts 	= $this->parseActionSeparator($controlleur);
+				$ctrl 	= new DefaultsControlleur( $acts );
 
-				if ( method_exists($ctrl, $action) )
+				if ( method_exists($ctrl, $acts) )
 				{
-					$ctrl->$action();
+					$ctrl->$acts( $action );
 				}
 				else {
 					throw new \Exception("Controlleur Introuvable", 1);
@@ -84,6 +84,8 @@ class Road
                 $newAction[$i] = ucfirst($newAction[$i]);
             }
         }
+
+		$newAction[0] = strtolower( $newAction[0] );
 
         return implode('', $newAction);
     }
