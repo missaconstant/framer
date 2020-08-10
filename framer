@@ -53,6 +53,9 @@
 					"<?= \$content ?> \n\n" .
 					"<!--- wrapper --->";
 
+				// if layout folder does not exists, create it
+				!@is_dir(__DIR__ . '/vues/layouts/') && @mkdir( __DIR__ . '/vues/layouts/' );
+
 				// writing file
 				file_put_contents( __DIR__ . '/vues/layouts/' . $argv[2] . '.layout.php', $content );
 
